@@ -18,6 +18,9 @@ maintenance = { status = "actively-developed" }
 [dependencies]
 http = "0.2"
 
+[dev-dependencies]
+toml = "0.5"
+
 [profile.release]
 codegen-units = 1
 lto = "fat"

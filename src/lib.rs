@@ -83,11 +83,34 @@ const X_PERMITTED_CROSS_DOMAIN_POLICIES_DEFAULT: &str = "none";
 
 #[cfg(test)]
 mod tests {
+    use std::{fs::read_to_string, path::Path};
+
+    use toml::value::Value;
+
     use super::*;
 
     #[test]
     fn headers_returns_headermap_with_expected_len() {
         let got = headers();
         assert_eq!(got.len(), 13);
+    }
+
+    #[test]
+    fn headers_returns_headermap_with_expected_contents() {
+        let got = headers();
+
+        let fixture_path = Path::new("./fixtures/headers.toml");
+        let fixture_data =
+            read_to_string(fixture_path).expect("could not read fixtures/headers.toml");
+        let fixture = fixture_data.parse::<Value>().unwrap();
+
+        if let Value::Table(table) = fixture {
+            assert_eq!(table.len(), 13);
+            for (name, value) in table.iter() {
+                assert_eq!(got[name], value.as_str().unwrap());
+            }
+        } else {
+            panic!("unexpected TOML structure");
+        }
     }
 }
