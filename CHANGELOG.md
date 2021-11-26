@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- fix badge links in README, add more content
+
 ## [0.1.1] - 2021-11-25
 
 ### Fixed
