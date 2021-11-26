@@ -1,11 +1,37 @@
 #![deny(clippy::all)]
+#![warn(missing_docs)]
+
+//! Modern web browsers may prevent or mitigate security vulnerabilities when they encounter the
+//! [HTTP response headers recommended by OWASP](https://owasp.org/www-project-secure-headers/).
+//!
+//! This crate offers these HTTP headers and their values,
+//! so that they may be more-conveniently used when developing web services in Rust.
+//!
+//! Example:
+//! ```
+//! use std::convert::Infallible;
+//! use http::response::Parts;
+//! use hyper::{Body, Request, Response};
+//!
+//! async fn handle(_req: Request<Body>) -> Result<Response<Body>, Infallible> {
+//!     let mut response = Response::new(Body::from("hello, world!"));
+//!     let mut headers = response.headers_mut();
+//!     headers.extend(owasp_headers::headers());
+//!     Ok(response)
+//! }
+//! ```
+//!
+//! If you are developing a web service using
+//! [`tower::Service`](https://docs.rs/tower/0.4.11/tower/trait.Service.html),
+//! you may find it even more convenient to apply these headers using
+//! [tower-default-headers](https://crates.io/crates/tower-default-headers).
 
 use http::header::{
     HeaderMap, HeaderValue, CACHE_CONTROL, CONTENT_SECURITY_POLICY, PRAGMA, REFERRER_POLICY,
     X_CONTENT_TYPE_OPTIONS, X_FRAME_OPTIONS,
 };
 
-/// see: https://owasp.org/www-project-secure-headers/
+/// produces an owned-collection of headers and their values
 pub fn headers() -> HeaderMap {
     let mut h = HeaderMap::new();
     h.reserve(13);

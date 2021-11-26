@@ -19,6 +19,7 @@ maintenance = { status = "actively-developed" }
 http = "0.2"
 
 [dev-dependencies]
+hyper = "0.14"
 toml = "0.5"
 
 [profile.release]
