@@ -1,4 +1,4 @@
-#![deny(clippy::all)]
+#![deny(clippy::all, unsafe_code)]
 #![warn(missing_docs)]
 
 //! Modern web browsers may prevent or mitigate security vulnerabilities when they encounter the
