@@ -1,8 +1,10 @@
-# owasp-headers-rs [![Status](https://img.shields.io/badge/status-actively--developed-brightgreen)](https://gitlab.com/jokeyrhyme/owasp-headers-rs) [![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline-status/jokeyrhyme/owasp-headers-rs?branch=main)](https://gitlab.com/jokeyrhyme/owasp-headers-rs/-/pipelines?ref=main) [![Crates.io](https://img.shields.io/crates/v/owasp-headers)](https://crates.io/crates/owasp-headers) [![docs.rs](https://img.shields.io/docsrs/owasp-headers)](https://docs.rs/owasp-headers)
+# owasp-headers-rs
 
-best-practice OWASP HTTP response headers ( https://owasp.org/www-project-secure-headers/ ) for Rust
+Best-practice OWASP HTTP response headers (https://owasp.org/www-project-secure-headers/) for Rust
 
-## [headers](https://gitlab.com/jokeyrhyme/owasp-headers-rs/-/blob/main/fixtures/headers.toml)
+Forked from: https://gitlab.com/jokeyrhyme/owasp-headers-rs. Updated to be compatible with Axum 0.7 and friends. If you're reading this in the future, see [this issue](https://gitlab.com/jokeyrhyme/owasp-headers-rs/-/issues/1) to see if the original repo has been updated.
+
+## [Headers](https://gitlab.com/jokeyrhyme/owasp-headers-rs/-/blob/main/fixtures/headers.toml)
 
 ```
 HTTP-Strict-Transport-Security = "max-age=31536000 ; includeSubDomains"
@@ -20,9 +22,8 @@ Cache-Control = "no-store, max-age=0"
 Pragma = "no-cache"
 ```
 
-## see also
+## See also
 
 - https://owasp.org/www-project-secure-headers/
 
-- tower-default-headers: [source code](https://gitlab.com/jokeyrhyme/tower-default-headers-rs), [crate](https://crates.io/crates/tower-default-headers)
-
+- tower-default-headers: https://github.com/banool/tower-default-headers-rs

@@ -9,9 +9,10 @@
 //!
 //! Example:
 //! ```
-//! use std::convert::Infallible;
+//! use axum::body::Body;
 //! use http::response::Parts;
-//! use hyper::{Body, Request, Response};
+//! use hyper::{Request, Response};
+//! use std::convert::Infallible;
 //!
 //! async fn handle(_req: Request<Body>) -> Result<Response<Body>, Infallible> {
 //!     let mut response = Response::new(Body::from("hello, world!"));
